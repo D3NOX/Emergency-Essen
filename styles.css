@@ -1,0 +1,195 @@
+/* Globales Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container für zentrierte Inhalte */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar Styling */
+.nav-icon {
+    max-width: 20px; /* Maximalbreite des Icons */
+    max-height: 20px; /* Maximalhöhe des Icons */
+    margin-right: 8px; /* Abstand zwischen dem Icon und dem Text */
+    vertical-align: middle; /* Vertikale Ausrichtung des Icons */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Platz zwischen Logo und Navigation */
+    align-items: center;            /* Zentriert Logo und Links vertikal */
+    padding: 20px 40px;             /* Abstände für die Navbar */
+    background-color: #333;
+}
+
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    max-height: 60px; /* Maximalhöhe für das Logo */
+    width: auto;      /* Beibehaltung des Seitenverhältnisses */
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    display: flex;
+    gap: 30px; /* Abstand zwischen den Links */
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #ff2e3b;
+    color: #fff;
+}
+
+/* Responsive Design Anpassung */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Vertikales Layout auf kleineren Bildschirmen */
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Links untereinander statt nebeneinander */
+        gap: 10px;
+    }
+
+    .logo-img {
+        max-height: 50px; /* Kleinere Logos auf mobilen Geräten */
+    }
+}
+
+
+/* Hero Section Styling */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #006bb3;
+}
+
+/* Box Grid Layout */
+.features {
+    padding: 60px 0;
+}
+
+.grid-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.box img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.box h3 {
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.box p {
+    margin: 10px 0 20px;
+    color: #666;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #971922;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #ff2e3b;
+}
+
+/* Mobile Navigation Toggle */
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
