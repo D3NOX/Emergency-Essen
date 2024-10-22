@@ -64,7 +64,7 @@ body {
 }
 
 .nav-links li a:hover {
-    background-color: #ff2e3b;
+    background-color: #ff4202;
     color: #fff;
 }
 
@@ -165,14 +165,14 @@ body {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
-    background-color: #971922;
+    background-color: #9d2700;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .btn-secondary:hover {
-    background-color: #ff2e3b;
+    background-color: #ff4202;
 }
 
 /* Mobile Navigation Toggle */
