@@ -1,11 +1,11 @@
 // Discord Webhook-URL einfügen
-const discordWebhookUrl = "https://discord.com/api/webhooks/WEBHOOK_ID/WEBHOOK_TOKEN";
+const discordWebhookUrl = "https://discord.com/api/webhooks/1300511902333538304/dqrq55jkxze1FP_LVTsjhUtVcrIlP0dnOMtL92kf6DEi9konE-QZfoXSOGPDbddLuAkJ";
 
 // Funktion, die den Status der Website überprüft
 async function checkWebsiteStatus() {
     try {
         // HTTP-Anfrage an deine Website zum Überprüfen des Status
-        const response = await fetch("https://example.com"); // <--- Deine Website-URL hier einfügen
+        const response = await fetch("https://d3nox.github.io/Emergency-Essen"); // <--- Deine Website-URL hier einfügen
         const status = response.ok ? "Operational" : "Down";
 
         return {
