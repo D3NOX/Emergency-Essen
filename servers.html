@@ -14,6 +14,53 @@
 
     <!-- Responsive Design -->
     <meta name="theme-color" content="#333">
+    <style>
+        /* Dropdown Menu Style */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #3c3c3c;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            color: #3c3c3c;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .btn-secondary {
+            background-color: #9d2700;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff4202;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -55,10 +102,19 @@
                 <div class="grid-boxes">
                     <div class="box">
                         <h3>Emergency Essen - Offical Roleplay Server</h3>
-                        <p>By o1.dxnis / NotValidDeveloper</p>
+                        <p>By NotValidDeveloper</p>
                         <a href="https://discord.gg/AySRTvx3" class="btn-secondary">Jetzt Beitreten</a>
-                        <a href="https://www.roblox.com/share?code=b720fe854942b3458c7452627fddb46d&type=Server" class="btn-secondary">In-Game Server</a>
-                        <p></p>
+
+                        <!-- Dropdown Button -->
+                        <div class="dropdown">
+                            <a href="#" class="btn-secondary">Mehr Optionen</a>
+                            <div class="dropdown-content">
+                                <a href="https://discord.gg/NK7D7dXwn9">Polizei Discord</a>
+                                <a href="#">Feuerwehr Discord</a>
+                                <a href="#">Rettungsdienst Discord</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
