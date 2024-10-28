@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Status Checker</title>
+</head>
+<body>
+    <h1>Website Status Checker</h1>
+    <p>Status wird überprüft und an Discord gesendet...</p>
+
+    <script>
+        // Discord Webhook-URL einfügen
+        const discordWebhookUrl = "https://discord.com/api/webhooks/1300511902333538304/dqrq55jkxze1FP_LVTsjhUtVcrIlP0dnOMtL92kf6DEi9konE-QZfoXSOGPDbddLuAkJ";
+
+        // Funktion, die den Status der Website überprüft
+        async function checkWebsiteStatus() {
+            try {
+                // HTTP-Anfrage an deine Website zum Überprüfen des Status
+                const response = await fetch(window.location.href); // Die aktuelle Website-URL
+                const status = response.ok ? "Operational" : "Down";
+
+                return {
+                    status: status,
+                    statusCode: response.status,
+                    timestamp: new Date()
+                };
+            } catch (error) {
+                return {
+                    status: "Down",
+                    statusCode: "N/A",
+                    timestamp: new Date()
+                };
+            }
+        }
+
+        // Funktion, die den Status an Discord sendet
+        async function sendStatusToDiscord(statusData) {
+            // Zeitpunkt des nächsten Checks in 5 Sekunden
+            const nextCheckTime = new Date(Date.now() + 5 * 1000);
+
+            const message = {
+                content: "Website Status Update",
+                embeds: [{
+                    title: "Website Status",
+                    color: statusData.status === "Operational" ? 3066993 : 15158332, // grün für OK, rot für Down
+                    fields: [
+                        { name: "Status", value: statusData.status, inline: true },
+                        { name: "Status Code", value: statusData.statusCode.toString(), inline: true },
+                        { name: "Letzter Check", value: statusData.timestamp.toLocaleString(), inline: true },
+                        { name: "Nächster Check", value: nextCheckTime.toLocaleString(), inline: true }
+                    ],
+                    footer: { text: "Website Status Checker" },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            // Nachricht an Discord senden
+            await fetch(discordWebhookUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(message)
+            })
+            .then(response => console.log("Webhook response:", response))
+            .catch(error => console.error("Error:", error));
+        }
+
+        // Hauptfunktion für den regelmäßigen Check alle 5 Sekunden
+        async function updateStatus() {
+            const statusData = await checkWebsiteStatus();
+            await sendStatusToDiscord(statusData);
+        }
+
+        // Ersten Statuscheck sofort durchführen und dann alle 5 Sekunden
+        updateStatus();
+        setInterval(updateStatus, 5 * 1000); // Alle 5 Sekunden
+    </script>
+</body>
+</html>
