@@ -37,7 +37,7 @@
         // Funktion, die den Status an Discord sendet
         async function sendStatusToDiscord(statusData) {
             // Zeitpunkt des nächsten Checks in 5 Sekunden
-            const nextCheckTime = new Date(Date.now() + 5 * 1000);
+            const nextCheckTime = new Date(Date.now() + 60 * 1000);
 
             const message = {
                 content: "Website Status Update",
